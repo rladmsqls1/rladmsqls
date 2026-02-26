@@ -112,10 +112,10 @@ export default function App() {
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-md py-3' : 'bg-transparent py-5'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
           <div className="flex items-center gap-2">
-            <div className="bg-emerald-600 p-1.5 rounded-lg">
+            <div className="bg-blue-600 p-1.5 rounded-lg">
               <Heart className="w-6 h-6 text-white fill-white" />
             </div>
-            <span className={`text-xl font-bold tracking-tight ${scrolled ? 'text-emerald-800' : 'text-emerald-900'}`}>
+            <span className={`text-xl font-bold tracking-tight ${scrolled ? 'text-blue-800' : 'text-blue-900'}`}>
               한캄봉사회
             </span>
           </div>
@@ -126,14 +126,14 @@ export default function App() {
               <a 
                 key={item.name} 
                 href={item.href} 
-                className="text-sm font-medium hover:text-emerald-600 transition-colors"
+                className="text-sm font-medium hover:text-blue-600 transition-colors"
               >
                 {item.name}
               </a>
             ))}
             <a 
               href="#support" 
-              className="bg-emerald-600 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-emerald-700 transition-all shadow-sm"
+              className="bg-blue-600 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-blue-700 transition-all shadow-sm"
             >
               후원하기
             </a>
@@ -167,7 +167,7 @@ export default function App() {
                 ))}
                 <a 
                   href="#support" 
-                  className="bg-emerald-600 text-white text-center py-3 rounded-xl font-bold"
+                  className="bg-blue-600 text-white text-center py-3 rounded-xl font-bold"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   후원하기
@@ -187,7 +187,7 @@ export default function App() {
             className="w-full h-full object-cover opacity-20"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-emerald-50/50 to-white"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-blue-50/50 to-white"></div>
         </div>
         
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
@@ -196,21 +196,21 @@ export default function App() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest text-emerald-700 uppercase bg-emerald-100 rounded-full">
+            <span className="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest text-blue-700 uppercase bg-blue-100 rounded-full">
               Korean Community for Service In Cambodia
             </span>
             <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 leading-tight">
               Love Of Human Beings <br />
-              <span className="text-emerald-600">with CAMBODIA</span>
+              <span className="text-blue-600">with CAMBODIA</span>
             </h1>
             <p className="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto">
               순천향 인간사랑, 캄보디아와 함께
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="#about" className="px-8 py-4 bg-emerald-600 text-white rounded-2xl font-bold text-lg hover:bg-emerald-700 transition-all shadow-lg shadow-emerald-200">
+              <a href="#about" className="px-8 py-4 bg-blue-600 text-white rounded-2xl font-bold text-lg hover:bg-blue-700 transition-all shadow-lg shadow-blue-200">
                 단체 소개 보기
               </a>
-              <a href="#support" className="px-8 py-4 bg-white text-emerald-700 border-2 border-emerald-100 rounded-2xl font-bold text-lg hover:bg-emerald-50 transition-all">
+              <a href="#support" className="px-8 py-4 bg-white text-blue-700 border-2 border-blue-100 rounded-2xl font-bold text-lg hover:bg-blue-50 transition-all">
                 후원 참여하기
               </a>
             </div>
@@ -224,7 +224,7 @@ export default function App() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-bold mb-4 flex items-center gap-3">
-                <Users className="text-emerald-600" />
+                <Users className="text-blue-600" />
                 한캄봉사회 소개
               </h2>
               <div className="space-y-4 text-slate-600 leading-relaxed">
@@ -253,7 +253,7 @@ export default function App() {
                 className="rounded-3xl shadow-2xl w-full object-cover aspect-[3/4]"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute -bottom-6 -right-6 bg-emerald-600 text-white p-8 rounded-3xl shadow-xl hidden lg:block max-w-xs border-4 border-white">
+              <div className="absolute -bottom-6 -right-6 bg-blue-600 text-white p-8 rounded-3xl shadow-xl hidden lg:block max-w-xs border-4 border-white">
                 <p className="italic text-lg font-medium leading-relaxed">
                   "우리는 위대한 일을 할 수 없다.<br />
                   그러나 위대한 사랑으로 작은 일을 할 수 있다."
@@ -291,7 +291,7 @@ export default function App() {
               }
             ].map((activity, idx) => (
               <div key={idx} className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow border border-slate-100">
-                <div className="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center mb-6">
+                <div className="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6">
                   {activity.icon}
                 </div>
                 <h3 className="text-xl font-bold mb-4">{activity.title}</h3>
@@ -302,69 +302,69 @@ export default function App() {
 
           <div className="bg-white p-10 rounded-[40px] shadow-sm border border-slate-100">
             <div className="flex items-center gap-3 mb-8">
-              <TrendingUp className="text-emerald-600 w-6 h-6" />
+              <TrendingUp className="text-blue-600 w-6 h-6" />
               <h3 className="text-2xl font-bold">주요 활동 통계 (2002-2022)</h3>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
               <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100 text-center">
                 <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center mx-auto mb-3 shadow-sm">
-                  <Users className="w-5 h-5 text-emerald-600" />
+                  <Users className="w-5 h-5 text-blue-600" />
                 </div>
                 <div className="text-xl font-bold text-slate-900">1,029명</div>
                 <div className="text-[11px] font-medium text-slate-500 uppercase tracking-wider">누적 회원수</div>
               </div>
               <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100 text-center">
                 <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center mx-auto mb-3 shadow-sm">
-                  <Stethoscope className="w-5 h-5 text-emerald-600" />
+                  <Stethoscope className="w-5 h-5 text-blue-600" />
                 </div>
                 <div className="text-xl font-bold text-slate-900">37,562건</div>
                 <div className="text-[11px] font-medium text-slate-500 uppercase tracking-wider">누적 진료</div>
               </div>
               <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100 text-center">
                 <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center mx-auto mb-3 shadow-sm">
-                  <Activity className="w-5 h-5 text-emerald-600" />
+                  <Activity className="w-5 h-5 text-blue-600" />
                 </div>
                 <div className="text-xl font-bold text-slate-900">858건</div>
                 <div className="text-[11px] font-medium text-slate-500 uppercase tracking-wider">누적 수술</div>
               </div>
               <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100 text-center">
                 <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center mx-auto mb-3 shadow-sm">
-                  <Globe className="w-5 h-5 text-emerald-600" />
+                  <Globe className="w-5 h-5 text-blue-600" />
                 </div>
                 <div className="text-xl font-bold text-slate-900">18회</div>
                 <div className="text-[11px] font-medium text-slate-500 uppercase tracking-wider">현지의료봉사</div>
               </div>
               <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100 text-center">
                 <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center mx-auto mb-3 shadow-sm">
-                  <GraduationCap className="w-5 h-5 text-emerald-600" />
+                  <GraduationCap className="w-5 h-5 text-blue-600" />
                 </div>
                 <div className="text-xl font-bold text-slate-900">71명</div>
                 <div className="text-[11px] font-medium text-slate-500 uppercase tracking-wider">의료진 연수</div>
               </div>
               <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100 text-center">
                 <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center mx-auto mb-3 shadow-sm">
-                  <Heart className="w-5 h-5 text-emerald-600" />
+                  <Heart className="w-5 h-5 text-blue-600" />
                 </div>
                 <div className="text-xl font-bold text-slate-900">35명</div>
                 <div className="text-[11px] font-medium text-slate-500 uppercase tracking-wider">심장병 초청수술</div>
               </div>
               <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100 text-center">
                 <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center mx-auto mb-3 shadow-sm">
-                  <Award className="w-5 h-5 text-emerald-600" />
+                  <Award className="w-5 h-5 text-blue-600" />
                 </div>
                 <div className="text-xl font-bold text-slate-900">12,788명</div>
                 <div className="text-[11px] font-medium text-slate-500 uppercase tracking-wider">결핵 퇴치 지원</div>
               </div>
               <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100 text-center">
                 <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center mx-auto mb-3 shadow-sm">
-                  <Droplets className="w-5 h-5 text-emerald-600" />
+                  <Droplets className="w-5 h-5 text-blue-600" />
                 </div>
                 <div className="text-xl font-bold text-slate-900">3개</div>
                 <div className="text-[11px] font-medium text-slate-500 uppercase tracking-wider">우물 완공</div>
               </div>
               <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100 text-center">
                 <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center mx-auto mb-3 shadow-sm">
-                  <Medal className="w-5 h-5 text-emerald-600" />
+                  <Medal className="w-5 h-5 text-blue-600" />
                 </div>
                 <div className="text-xl font-bold text-slate-900">11회</div>
                 <div className="text-[11px] font-medium text-slate-500 uppercase tracking-wider">정부 훈장 수훈</div>
@@ -372,18 +372,18 @@ export default function App() {
             </div>
             
             <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="flex items-center gap-4 p-5 bg-emerald-50 rounded-3xl border border-emerald-100">
+              <div className="flex items-center gap-4 p-5 bg-blue-50 rounded-3xl border border-blue-100">
                 <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm shrink-0">
-                  <Coins className="w-6 h-6 text-emerald-600" />
+                  <Coins className="w-6 h-6 text-blue-600" />
                 </div>
                 <div>
                   <div className="text-xl font-bold text-slate-900">37.1억원</div>
                   <div className="text-xs text-slate-500 font-bold uppercase tracking-wider">누적 주요 사업비</div>
                 </div>
               </div>
-              <div className="flex items-center gap-4 p-5 bg-emerald-50 rounded-3xl border border-emerald-100">
+              <div className="flex items-center gap-4 p-5 bg-blue-50 rounded-3xl border border-blue-100">
                 <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm shrink-0">
-                  <HandHeart className="w-6 h-6 text-emerald-600" />
+                  <HandHeart className="w-6 h-6 text-blue-600" />
                 </div>
                 <div>
                   <div className="text-xl font-bold text-slate-900">9.3억원</div>
@@ -403,7 +403,7 @@ export default function App() {
               <h2 className="text-3xl font-bold mb-2">사진 및 소식</h2>
               <p className="text-slate-500">현장의 생생한 감동을 전해드립니다.</p>
             </div>
-            <button className="text-emerald-600 font-semibold flex items-center gap-1 hover:underline">
+            <button className="text-blue-600 font-semibold flex items-center gap-1 hover:underline">
               전체보기 <ChevronRight className="w-4 h-4" />
             </button>
           </div>
@@ -419,8 +419,8 @@ export default function App() {
                     referrerPolicy="no-referrer"
                   />
                 </div>
-                <div className="text-xs text-emerald-600 font-bold mb-2 uppercase tracking-wider">2024.02.15</div>
-                <h3 className="text-lg font-bold group-hover:text-emerald-600 transition-colors">제 42차 캄보디아 프놈펜 의료 봉사 현장</h3>
+                <div className="text-xs text-blue-600 font-bold mb-2 uppercase tracking-wider">2024.02.15</div>
+                <h3 className="text-lg font-bold group-hover:text-blue-600 transition-colors">제 42차 캄보디아 프놈펜 의료 봉사 현장</h3>
               </div>
             ))}
           </div>
@@ -428,7 +428,7 @@ export default function App() {
       </section>
 
       {/* Support Section */}
-      <section id="support" className="py-24 bg-emerald-900 text-white overflow-hidden relative">
+      <section id="support" className="py-24 bg-blue-900 text-white overflow-hidden relative">
         <div className="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
           <Award className="w-full h-full" />
         </div>
@@ -436,7 +436,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl">
             <h2 className="text-4xl font-bold mb-6">여러분의 후원이 <br />큰 기적을 만듭니다</h2>
-            <p className="text-emerald-100 text-lg mb-10 leading-relaxed">
+            <p className="text-blue-100 text-lg mb-10 leading-relaxed">
               한캄봉사회의 모든 활동은 후원자 여러분의 소중한 정성으로 이루어집니다. 
               커피 한 잔의 여유를 캄보디아 아이들의 건강한 미소로 바꿔주세요.
             </p>
@@ -444,20 +444,20 @@ export default function App() {
             <div className="grid sm:grid-cols-2 gap-4 mb-12">
               <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20">
                 <h4 className="font-bold text-xl mb-2">정기 후원</h4>
-                <p className="text-emerald-200 text-sm">매월 일정 금액으로 지속적인 봉사 활동을 지원합니다.</p>
+                <p className="text-blue-200 text-sm">매월 일정 금액으로 지속적인 봉사 활동을 지원합니다.</p>
               </div>
               <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20">
                 <h4 className="font-bold text-xl mb-2">일시 후원</h4>
-                <p className="text-emerald-200 text-sm">특별한 날, 소중한 마음을 일시적으로 전하실 수 있습니다.</p>
+                <p className="text-blue-200 text-sm">특별한 날, 소중한 마음을 일시적으로 전하실 수 있습니다.</p>
               </div>
             </div>
 
             <div className="flex flex-wrap gap-4">
-              <button className="bg-white text-emerald-900 px-10 py-4 rounded-2xl font-bold text-lg hover:bg-emerald-50 transition-all shadow-xl">
+              <button className="bg-white text-blue-900 px-10 py-4 rounded-2xl font-bold text-lg hover:bg-blue-50 transition-all shadow-xl">
                 온라인 후원 신청
               </button>
-              <div className="flex items-center gap-3 px-6 py-4 bg-emerald-800/50 rounded-2xl border border-emerald-700">
-                <span className="text-emerald-200 text-sm font-medium">후원 계좌:</span>
+              <div className="flex items-center gap-3 px-6 py-4 bg-blue-800/50 rounded-2xl border border-blue-700">
+                <span className="text-blue-200 text-sm font-medium">후원 계좌:</span>
                 <span className="font-bold">신한은행 100-035-441346 (예금주 : 한캄봉사회)</span>
               </div>
             </div>
@@ -477,7 +477,7 @@ export default function App() {
             {/* Utilization Chart */}
             <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
               <div className="flex items-center gap-2 mb-8">
-                <PieChartIcon className="text-emerald-600 w-6 h-6" />
+                <PieChartIcon className="text-blue-600 w-6 h-6" />
                 <h3 className="text-xl font-bold">주요 사업비 활용 실적</h3>
               </div>
               <div className="h-[400px] w-full">
@@ -500,12 +500,12 @@ export default function App() {
                       dataKey="value"
                     >
                       {[
-                        '#059669', // emerald-600
-                        '#10b981', // emerald-500
-                        '#34d399', // emerald-400
-                        '#6ee7b7', // emerald-300
-                        '#a7f3d0', // emerald-200
-                        '#d1fae5', // emerald-100
+                        '#2563eb', // blue-600
+                        '#3b82f6', // blue-500
+                        '#60a5fa', // blue-400
+                        '#93c5fd', // blue-300
+                        '#bfdbfe', // blue-200
+                        '#dbeafe', // blue-100
                       ].map((color, index) => (
                         <Cell key={`cell-${index}`} fill={color} />
                       ))}
@@ -520,7 +520,7 @@ export default function App() {
               <div className="mt-8 pt-8 border-t border-slate-100">
                 <div className="flex justify-between items-center">
                   <span className="text-slate-500 font-medium">총 주요 사업비 (누적)</span>
-                  <span className="text-2xl font-bold text-emerald-600">3,715,961,266원</span>
+                  <span className="text-2xl font-bold text-blue-600">3,715,961,266원</span>
                 </div>
               </div>
             </div>
@@ -529,7 +529,7 @@ export default function App() {
             <div className="space-y-8">
               <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
                 <div className="flex items-center gap-2 mb-6">
-                  <BarChart3 className="text-emerald-600 w-6 h-6" />
+                  <BarChart3 className="text-blue-600 w-6 h-6" />
                   <h3 className="text-xl font-bold">기부금 모금 현황</h3>
                 </div>
                 <div className="space-y-6">
@@ -539,32 +539,32 @@ export default function App() {
                       <span className="font-bold text-slate-900">937,090,888원</span>
                     </div>
                     <div className="w-full bg-slate-100 h-4 rounded-full overflow-hidden">
-                      <div className="bg-emerald-600 h-full w-full rounded-full"></div>
+                      <div className="bg-blue-600 h-full w-full rounded-full"></div>
                     </div>
                   </div>
                   <div className="grid grid-cols-3 gap-4">
                     <div className="text-center">
                       <div className="text-sm text-slate-500 mb-1">개인</div>
-                      <div className="font-bold text-emerald-600">70%</div>
+                      <div className="font-bold text-blue-600">70%</div>
                     </div>
                     <div className="text-center">
                       <div className="text-sm text-slate-500 mb-1">기관</div>
-                      <div className="font-bold text-emerald-600">20%</div>
+                      <div className="font-bold text-blue-600">20%</div>
                     </div>
                     <div className="text-center">
                       <div className="text-sm text-slate-500 mb-1">단체</div>
-                      <div className="font-bold text-emerald-600">10%</div>
+                      <div className="font-bold text-blue-600">10%</div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-emerald-600 p-8 rounded-3xl shadow-xl text-white relative overflow-hidden">
+              <div className="bg-blue-600 p-8 rounded-3xl shadow-xl text-white relative overflow-hidden">
                 <div className="absolute top-0 right-0 opacity-10">
                   <FileText className="w-32 h-32 -mr-8 -mt-8" />
                 </div>
                 <h3 className="text-xl font-bold mb-4 relative z-10">투명한 공시 안내</h3>
-                <p className="text-emerald-50 mb-6 relative z-10 leading-relaxed">
+                <p className="text-blue-50 mb-6 relative z-10 leading-relaxed">
                   한캄봉사회는 상속세 및 증여세법에 따라 매년 기부금 모금액 및 활용실적을 국세청 홈페이지와 단체 홈페이지에 투명하게 공시하고 있습니다.
                 </p>
                 
@@ -584,7 +584,7 @@ export default function App() {
                       ))}
                     </div>
                   ) : (
-                    <p className="text-emerald-200 text-sm italic mb-2">등록된 보고서가 없습니다.</p>
+                    <p className="text-blue-200 text-sm italic mb-2">등록된 보고서가 없습니다.</p>
                   )}
 
                   <div className="pt-4 flex flex-wrap gap-2">
@@ -598,7 +598,7 @@ export default function App() {
                     <button 
                       onClick={() => fileInputRef.current?.click()}
                       disabled={isUploading}
-                      className="bg-white text-emerald-600 px-6 py-3 rounded-xl font-bold text-sm hover:bg-emerald-50 transition-all flex items-center gap-2"
+                      className="bg-white text-blue-600 px-6 py-3 rounded-xl font-bold text-sm hover:bg-blue-50 transition-all flex items-center gap-2"
                     >
                       {isUploading ? (
                         <Loader2 className="w-4 h-4 animate-spin" />
@@ -613,11 +613,11 @@ export default function App() {
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="p-6 bg-white rounded-3xl border border-slate-100 text-center">
-                  <div className="text-3xl font-bold text-emerald-600 mb-1">100%</div>
+                  <div className="text-3xl font-bold text-blue-600 mb-1">100%</div>
                   <div className="text-xs text-slate-500 uppercase tracking-wider font-bold">사업비 집행률</div>
                 </div>
                 <div className="p-6 bg-white rounded-3xl border border-slate-100 text-center">
-                  <div className="text-3xl font-bold text-emerald-600 mb-1">0원</div>
+                  <div className="text-3xl font-bold text-blue-600 mb-1">0원</div>
                   <div className="text-xs text-slate-500 uppercase tracking-wider font-bold">행정 수수료</div>
                 </div>
               </div>
@@ -634,7 +634,7 @@ export default function App() {
               <h2 className="text-3xl font-bold mb-8">연락처 및 오시는 길</h2>
               <div className="space-y-8">
                 <div className="flex gap-4">
-                  <div className="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center shrink-0">
+                  <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center shrink-0">
                     <MapPin />
                   </div>
                   <div>
@@ -643,7 +643,7 @@ export default function App() {
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <div className="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center shrink-0">
+                  <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center shrink-0">
                     <Phone />
                   </div>
                   <div>
@@ -652,7 +652,7 @@ export default function App() {
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <div className="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center shrink-0">
+                  <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center shrink-0">
                     <Mail />
                   </div>
                   <div>
@@ -685,7 +685,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-12">
             <div className="flex items-center gap-2">
-              <div className="bg-emerald-600 p-1 rounded-lg">
+              <div className="bg-blue-600 p-1 rounded-lg">
                 <Heart className="w-5 h-5 text-white fill-white" />
               </div>
               <span className="text-xl font-bold text-white">한캄봉사회</span>
