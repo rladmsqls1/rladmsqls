@@ -45,10 +45,14 @@ export default function App() {
   const [scrolled, setScrolled] = useState(false);
   const [reports, setReports] = useState<Report[]>([]);
   const [isUploading, setIsUploading] = useState(false);
+  const [aboutImageUrl, setAboutImageUrl] = useState<string | null>(null);
+  const [isImageUploading, setIsImageUploading] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const imageInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     fetchReports();
+    fetchAboutImage();
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
@@ -65,6 +69,48 @@ export default function App() {
       }
     } catch (error) {
       console.error('Failed to fetch reports:', error);
+    }
+  };
+
+  const fetchAboutImage = async () => {
+    try {
+      const response = await fetch('/api/about-image');
+      if (response.ok) {
+        const data = await response.json();
+        if (data.url) setAboutImageUrl(data.url);
+      }
+    } catch (error) {
+      console.error('Failed to fetch about image:', error);
+    }
+  };
+
+  const handleImageUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    setIsImageUploading(true);
+    const formData = new FormData();
+    formData.append('image', file);
+
+    try {
+      const response = await fetch('/api/about-image/upload', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setAboutImageUrl(data.url);
+        alert('사진이 성공적으로 변경되었습니다.');
+      } else {
+        alert('사진 업로드에 실패했습니다.');
+      }
+    } catch (error) {
+      console.error('Image upload error:', error);
+      alert('사진 업로드 중 오류가 발생했습니다.');
+    } finally {
+      setIsImageUploading(false);
+      if (imageInputRef.current) imageInputRef.current.value = '';
     }
   };
 
@@ -246,13 +292,37 @@ export default function App() {
                 </p>
               </div>
             </div>
-            <div className="relative">
+            <div className="relative group">
               <img 
-                src="https://picsum.photos/seed/cambodia-patient-care/800/1000" 
+                src={aboutImageUrl || "https://picsum.photos/seed/cambodia-patient-care/800/1000"} 
                 alt="치료받는 캄보디아 환자와 의료진" 
                 className="rounded-3xl shadow-2xl w-full object-cover aspect-[3/4]"
                 referrerPolicy="no-referrer"
               />
+              
+              {/* Image Upload Overlay */}
+              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl flex items-center justify-center">
+                <input 
+                  type="file" 
+                  className="hidden" 
+                  ref={imageInputRef}
+                  onChange={handleImageUpload}
+                  accept="image/*"
+                />
+                <button 
+                  onClick={() => imageInputRef.current?.click()}
+                  disabled={isImageUploading}
+                  className="bg-white text-blue-600 px-6 py-3 rounded-xl font-bold text-sm hover:bg-blue-50 transition-all flex items-center gap-2 shadow-lg"
+                >
+                  {isImageUploading ? (
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                  ) : (
+                    <ImageIcon className="w-4 h-4" />
+                  )}
+                  사진 변경하기
+                </button>
+              </div>
+
               <div className="absolute -bottom-6 -right-6 bg-blue-600 text-white p-8 rounded-3xl shadow-xl hidden lg:block max-w-xs border-4 border-white">
                 <p className="italic text-lg font-medium leading-relaxed">
                   "우리는 위대한 일을 할 수 없다.<br />
@@ -698,7 +768,7 @@ export default function App() {
           </div>
           
           <div className="text-sm border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between gap-4">
-            <p>© 2024 한캄봉사회 (Korea-Cambodia Volunteer Association). All rights reserved.</p>
+            <p>© 한캄봉사회 (Korea-Cambodia Volunteer Association). All rights reserved.</p>
             <p>고유번호: 130-82-63087 | 대표자: 유병욱</p>
           </div>
         </div>

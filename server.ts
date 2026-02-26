@@ -12,16 +12,19 @@ async function startServer() {
   const app = express();
   const PORT = 3000;
 
-  // Ensure upload directory exists
-  const uploadDir = path.join(__dirname, "uploads", "reports");
-  if (!fs.existsSync(uploadDir)) {
-    fs.mkdirSync(uploadDir, { recursive: true });
-  }
+  // Ensure upload directories exist
+  const reportsDir = path.join(__dirname, "uploads", "reports");
+  const imagesDir = path.join(__dirname, "uploads", "images");
+  [reportsDir, imagesDir].forEach(dir => {
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true });
+    }
+  });
 
-  // Configure Multer
-  const storage = multer.diskStorage({
+  // Configure Multer for reports
+  const reportStorage = multer.diskStorage({
     destination: (req, file, cb) => {
-      cb(null, uploadDir);
+      cb(null, reportsDir);
     },
     filename: (req, file, cb) => {
       const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
@@ -29,16 +32,29 @@ async function startServer() {
     },
   });
 
-  const upload = multer({ storage });
+  // Configure Multer for images
+  const imageStorage = multer.diskStorage({
+    destination: (req, file, cb) => {
+      cb(null, imagesDir);
+    },
+    filename: (req, file, cb) => {
+      // For the about image, we can just use a fixed name or a unique one
+      const ext = path.extname(file.originalname);
+      cb(null, `about-image${ext}`);
+    },
+  });
+
+  const uploadReport = multer({ storage: reportStorage });
+  const uploadImage = multer({ storage: imageStorage });
 
   app.use(express.json());
 
-  // API Routes
+  // API Routes for Reports
   app.get("/api/reports", (req, res) => {
     try {
-      const files = fs.readdirSync(uploadDir);
+      const files = fs.readdirSync(reportsDir);
       const reports = files.map(file => ({
-        name: file.split("-").slice(1).join("-"), // Remove unique prefix
+        name: file.split("-").slice(1).join("-"),
         url: `/uploads/reports/${file}`,
         id: file
       }));
@@ -48,7 +64,7 @@ async function startServer() {
     }
   });
 
-  app.post("/api/reports/upload", upload.single("report"), (req, res) => {
+  app.post("/api/reports/upload", uploadReport.single("report"), (req, res) => {
     if (!req.file) {
       return res.status(400).json({ error: "No file uploaded" });
     }
@@ -59,6 +75,31 @@ async function startServer() {
         url: `/uploads/reports/${req.file.filename}`,
         id: req.file.filename
       }
+    });
+  });
+
+  // API Routes for Images
+  app.get("/api/about-image", (req, res) => {
+    try {
+      const files = fs.readdirSync(imagesDir).filter(f => f.startsWith("about-image"));
+      if (files.length > 0) {
+        // Return the most recent one (though we overwrite, just in case)
+        res.json({ url: `/uploads/images/${files[0]}?t=${Date.now()}` });
+      } else {
+        res.json({ url: null });
+      }
+    } catch (error) {
+      res.status(500).json({ error: "Failed to get about image" });
+    }
+  });
+
+  app.post("/api/about-image/upload", uploadImage.single("image"), (req, res) => {
+    if (!req.file) {
+      return res.status(400).json({ error: "No image uploaded" });
+    }
+    res.json({ 
+      message: "Image uploaded successfully",
+      url: `/uploads/images/${req.file.filename}?t=${Date.now()}`
     });
   });
 
